@@ -73,7 +73,7 @@ def draw_graph():
 	plt.title('Plot of a vs. iteration times')
 	plt.xlabel('iteration times')
 	plt.ylabel('a')
-	plt.xlim(0.0, 20.0)
+	plt.xlim(0.0, 30.0)
 	plt.ylim(0.0, 3.0)
 	plt.show()
 	
@@ -83,7 +83,7 @@ def draw_graph():
 	plt.title('Plot of b vs. iteration times')
 	plt.xlabel('iteration times')
 	plt.ylabel('b')
-	plt.xlim(0.0, 20.0)
+	plt.xlim(0.0, 30.0)
 	plt.ylim(0.0, 3.0)
 	plt.show()
 
