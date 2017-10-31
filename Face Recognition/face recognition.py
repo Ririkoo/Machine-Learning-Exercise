@@ -56,12 +56,13 @@ model.add(Dense(19, activation='softmax'))
 model.summary()
 plot_model(model, show_shapes=True,to_file='../model.png')
 
+rmsprop=keras.optimizers.RMSprop(lr=0.001, rho=0.9, epsilon=1e-06)
 model.compile(loss='categorical_crossentropy',
-              optimizer=RMSprop(),
+              optimizer=rmsprop,
               metrics=['accuracy'])
 
 history = model.fit(x_train, y_train,
-                    batch_size=1,
+                    batch_size=19,
                     epochs=200,
                     verbose=1,
                     validation_data=(x_validation, y_validation))
@@ -72,7 +73,10 @@ print('Test accuracy:', score[1])
 # plot the result
 plt.plot(history.epoch,history.history['acc'],label="acc")
 plt.plot(history.epoch,history.history['val_acc'],label="val_acc")
+plt.scatter(history.epoch,history.history['acc'],s=10,marker='o')
+plt.scatter(history.epoch,history.history['val_acc'],s=10,marker='o')
 plt.legend(loc='upper left')
+plt.xlim(0, 200)
 plt.ylim(0.0, 1.3)
 plt.title('Plot of accuracy vs. epoch(MLP)')
 plt.xlabel('epoch')
